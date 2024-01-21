@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#menu-container {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#menu {
+    background-color: #136828;
+    padding-top: 60px;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.menu-button {
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    color: rgb(248, 245, 245);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background-color: #2d7031;
+}
+
+#content {
+    margin-left: 250px;
+    transition: margin-left 0.5s;
+}
+
+#menu-toggle {
+    font-size: 30px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    color: #fff;
+}

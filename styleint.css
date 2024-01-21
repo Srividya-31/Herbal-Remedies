@@ -1,0 +1,132 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    font-size: 120%;
+    background: rgba(255, 255, 255, 0.7);
+  }
+  
+  .header {
+    position: absolute;
+    top: 10px;
+    left: 600px;
+    width: 25%;
+    margin: 30px auto 0px;
+    color: white;
+    background: rgba(63, 62, 62, 0.196);
+    text-align: center;
+    border: 1px solid #b0c4de3f;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 15px;
+  }
+  
+  .positioned-text {
+    position: relative;
+    top: 100px; /* Adjust as needed */
+    left: 30px; /* Adjust as needed */
+    color: white;
+    font-size: 72px;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+  }
+  
+  .position-text {
+    position: relative;
+    top: 140px; /* Adjust as needed */
+    left: 45px; /* Adjust as needed */
+    color: white;
+    font-size: 35px;
+    font-family: 'Times new roman', sans-serif;
+    /* font-weight: bold;*/
+  }
+  form, .content {
+    position: absolute;
+    top: 103px;
+    left: 0px;
+    width: 25.78%;
+    margin: 0px auto;
+    color: white;
+    padding: 10px;
+    border: 1px solid #b0c4de3f;
+    background: rgba(63, 62, 62, 0.196);
+    border-radius: 0px 0px 10px 10px;
+    
+  }
+  
+  
+  .input-group {
+    margin: 10px 0px 10px 0px;
+    
+  }
+  .input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+    
+  }
+  .input-group input {
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+  .btn {
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background :  rgb(33, 138, 38);
+    border: none;
+    border-radius: 5px;
+    
+  }
+  .error {
+    width: 92%; 
+    margin: 0px auto; 
+    padding: 10px; 
+    border: 1px solid #a94442; 
+    color: #a94442; 
+    background: #f2dede; 
+    border-radius: 5px; 
+    text-align: left;
+  }
+  .success {
+    color: #3c763d; 
+    background: #dff0d8; 
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+  }
+  
+  
+  /* Add additional styles for other elements on your webpage */
+  
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  
+  
+  
+  
+  button {
+    padding: 10px;
+    background-color:  rgb(33, 138, 38);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(33, 138, 38);
+  }
+  
+  

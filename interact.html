@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Graphs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    body{
+        background-image: url('background.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+  background-size: cover; /* Adjust the background size as needed */
+  background-repeat: repeat;
+  background-attachment: fixed;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Adjust the alpha value for the desired level of dimming */
+    }
+    .content {
+      position: relative; /* Ensure content is above the overlay */
+      z-index: 1; /* Ensure content is above the overlay */
+      padding: 20px;
+      color: #fff; /* Adjust text color for better visibility */
+    }
+    
+    .container {
+            
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(20, 133, 95, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .chart-container {
+             margin-top: 50px; /* Adjust the margin as needed */
+             text-align: center;
+             position: absolute; /* Set the position to absolute */
+             top: 20px; /* Position at the top */
+             left: 150px; /* Position at the left */
+             width: 600px;
+            height: 400px;
+        }
+
+        .chart-container .legend {
+            color: black !important;
+        }
+
+        img {
+            width: 400px;
+            height: 250px;
+            margin-top:30px;
+            margin-left: 40px;
+      
+            border-radius: 8px;
+           /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        .chart {
+            width: 100%;
+            height: 100%;
+            background-color:rgba(255, 255, 255, 1);
+
+        }
+</style>
+<body>
+    <div class="overlay"></div>
+    <div class="content">
+
+
+<button onclick="changeGraph('bar', 'Cold Medicine', [99, 50, 45, 68, 80, 70, 89])">Cold</button>
+<button onclick="changeGraph('pie', 'Cough Medicine', [60, 40, 50,89,72,99])">Cough</button>
+<button onclick="changeGraph('line', 'Fever Medicine', [30, 40, 20, 60, 80, 70, 90])">Fever</button>
+<button onclick="changeGraph('radar', 'Diabetes Medicine', [70, 80, 60, 75, 85, 65, 90])">Diabetes</button>
+<button onclick="changeGraph('scatter')">Skin disease</button>
+
+
+<div class="chart-container">
+    <canvas id="dynamicChart" class="chart"></canvas>
+   
+</div>
+
+
+<script>
+    var currentChartType = 'bar';
+
+    function changeGraph(type, label, data) {
+        var ctx = document.getElementById('dynamicChart').getContext('2d');
+
+        if (window.myChart) {
+            window.myChart.destroy();
+        }
+
+        switch (type) {
+            case 'bar':
+                window.myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Ajwain', 'Amla', 'Bilvapatra', 'Brahmi', 'Ginger', 'Peppermint', 'Tulasi'],
+                        datasets: [{
+                            label: label,
+                            data: data,
+                            backgroundColor: getRandomColors(data.length),
+                            borderColor: getRandomColors(data.length),
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeOutBounce'
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                break; 
+            case 'pie':
+                window.myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Ajwain', 'Bilvapatra','Ginger','Peppermint','Tulasi'],
+                        datasets: [{
+                            label: label,
+                            data: data,
+                            backgroundColor: getRandomColors(data.length),
+                            borderColor: 'white',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        animation: {
+                            duration: 1000,
+                            easing: 'animateScale'
+                        }
+                    }
+                });
+                break;
+            case 'line':
+                window.myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [ 'Amla', 'Bilvapatra', 'Brahmi', 'Ginger', 'Neem', 'Turmeric'],
+                        datasets: [{
+                            label: label,
+                            data: data,
+                            fill: false,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeInOutQuart'
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                break;
+            case 'radar':
+                window.myChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Ajwain', 'Amla', 'Bilvapatra', 'Brahmi', 'Ginger', 'Peppermint', 'Tulasi'],
+                        datasets: [{
+                            label: label,
+                            data: data,
+                            fill: true,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        animation: {
+                            duration: 2000,
+                            easing: 'easeInOutQuart'
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                break;
+
+               case 'scatter':
+                 var scatterData = {
+                    datasets: [{
+                        label: 'Skin disease medicine',
+                        data: [
+                            { x: 27, y: 20 },
+                            { x: 30, y: 20 },
+                            { x: 31, y: 22 },
+                            { x: 32, y: 27 },
+                            { x: 33, y: 24 },
+                            { x: 32, y: 30 },
+                            { x: 29, y: 27 },
+                            { x: 18, y: 28 },
+                            { x: 26, y: 33 },
+                            { x: 31, y: 35 },
+                            { x: 22, y: 29 },
+                            { x: 25, y: 68 },
+                            { x: 27, y: 22 },
+                            { x: 30, y: 19 },
+                            { x: 31, y: 13 },
+                            { x: 32, y: 14 },
+                            { x: 33, y: 17 },
+                            { x: 32, y: 28 },
+                            { x: 29, y: 23 },
+                            { x: 69, y: 22 },
+                            { x: 26, y: 35 },
+                            { x: 31, y: 37 },
+                            { x: 22, y: 28 },
+                            { x: 25, y: 39 }
+                            // Add more data points as needed
+                        ],
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                        pointBorderColor: 'rgba(255, 255, 255, 1)',
+                        pointBorderWidth: 2,
+                    }]
+                };
+                window.myChart = new Chart(ctx, {
+                    type: 'scatter',
+                    data: scatterData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                type: 'linear',
+                                position: 'bottom'
+                            },
+                            y: {
+                                type: 'linear',
+                                position: 'left'
+                            }
+                        },
+                        animation: {
+                    duration: 2000,
+                    easing: 'Bounce', // Using 'elastic' easing function
+                    elasticity: 30, // Adjust the elasticity value for the desired effect
+                }
+                    }
+                });
+                break;
+
+
+
+               
+
+
+            // Add more cases for other chart types if needed
+        }
+
+        currentChartType = type;
+    }
+
+    function getRandomColors(numColors) {
+        var colors = [];
+        for (var i = 0; i < numColors; i++) {
+            colors.push('#' + Math.floor(Math.random() * 16777215).toString(16));
+        }
+        return colors;
+    }
+
+    changeGraph(currentChartType, 'Bar Chart 1', [99, 50, 45, 68, 80, 70, 89]);
+</script>
+</div>
+</body>
+</html>

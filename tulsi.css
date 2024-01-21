@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    font-size: 10%;
+    
+  }
+  
+
+
+.btn {
+    position: absolute;
+    top: 60%;
+    left: 4%;
+    padding: 10px;
+    background-image: url('tulsi.jpg'); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    /* Set the width and height of the button */
+    width: 200px;
+    height: 200px;
+  }

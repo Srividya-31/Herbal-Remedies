@@ -1,0 +1,11 @@
+/* Add these styles to your CSS file or within a <style> tag in your HTML file */
+.plant-names {
+    margin-top: 0px; /* Adjust as needed */
+}
+
+.plant-name {
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold; /* Adjust font weight */
+    color: #03090f; /* Adjust text color */
+    /* Add any additional styles as needed */
+}

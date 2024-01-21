@@ -1,0 +1,28 @@
+/* Add this to your CSS file or in a <style> tag in your HTML file */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background:#ffffff; /* Background color for the page */
+    margin: 0;
+    padding: 0;
+}
+
+.chart-container {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+    background-color: #fff; /* Background color for the chart container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Heading color */
+}
+
+.chart-con {
+    width: 50px;
+    height: 50px; /* Adjust the height as needed */
+}
